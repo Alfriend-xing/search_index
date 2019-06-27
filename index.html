@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <title>search index</title>
+</head>
+<body>
+
+      <div class="ui three column centered grid">
+
+            <div class="row">
+                <div class="float-left" style="margin: 5px">
+                <a href='https://docs.python.org/3/' target="view_window">
+                    <img src='python.png' height="50" width="135">
+                </a>
+                </div>
+                
+                <div class="float-left" style="margin: 5px">
+                        <a href='https://github.com' target="view_window">
+                            <img src='github.png' height="50" width="135">
+                        </a>
+                        </div>
+
+                <div class="float-left" style="margin: 5px">
+                        <a href='https://getbootstrap.com/docs/4.3/getting-started/introduction/'>
+                            <img src='bootstrap.png' height="50" width="135">
+                        </a>
+                        </div>
+
+                <div class="float-left" style="margin: 5px">
+                        <a href='https://api.jquery.com/' target="view_window">
+                            <img src='jquery.png' height="50" width="135">
+                        </a>
+                        </div>
+
+                <div class="float-left" style="margin: 5px">
+                        <a href='https://docs.oracle.com/javase/8/docs/api/' target="view_window">
+                            <img src='java.png' height="50" width="135">
+                        </a>
+                        </div>
+
+                <div class="float-left" style="margin: 5px">
+                        <a href='https://www.rabbitmq.com/' target="view_window">
+                            <img src='rabbitmq.png' height="50" width="135">
+                        </a>
+                        </div>
+
+                <div class="float-left" style="margin: 5px">
+                        <a href='https://spring.io/guides' target="view_window">
+                            <img src='spring.png' height="50" width="135"></a>
+                        </div>
+
+                <div class="float-left" style="margin: 5px">
+                        <a href='https://seleniumhq.github.io/selenium/docs/api/py/api.html' target="view_window">
+                            <img src='selenium.png' height="50" width="135">
+                        </a>
+                        </div>
+
+                <div class="float-left" style="margin: 5px">
+                        <a href='https://www.w3schools.com/html/' target="view_window">
+                            <img src='html.png' height="50" width="135">
+                        </a>
+                        </div>
+
+            </div>
+            <script>
+                window.onload=function(){
+                    var as=document.getElementsByTagName('a')
+                    for (x in as){
+                        console.log(as[x])
+                        as[x].getElementsByTagName('img')[0].setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.2)')
+                        as[x].onmouseover=function(){
+                            // this.setAttribute("class","float-left shadow-lg")
+                        var inimg=this.getElementsByTagName('img')[0]
+                        inimg.setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.7)')
+                        // inimg.setAttribute('height','70')
+                        // inimg.setAttribute('width','180')
+                        }
+                        as[x].onmouseout=function(){
+                            this.setAttribute("class","float-left shadow-sm")
+                        var inimg=this.getElementsByTagName('img')[0]
+                        inimg.setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.2)')
+                        // inimg.setAttribute('height','65')
+                        // inimg.setAttribute('width','175')
+                        }
+                    }
+                }
+            
+            </script>
+            <div class="row">
+                    <div class="column"> 
+                        </div></div>
+            <div class="row">
+                    <div class="column"> 
+                        </div></div>
+            <div class="row">
+                    <div class="column"> 
+                        </div></div>
+            <div class="row">
+                    <div class="column"> 
+                        </div></div>
+            
+
+            <div class="row">
+            <div class="column">
+                    <div class="ui action input" style="width: 100%">
+                        <input type="text" placeholder="Search..." id='q1'>
+                        <button class="ui button" 
+                        style="background-color: #40acb7;
+                        color:#d7efff;
+                        width: 82px" 
+                                id='b1'>birdso</button>
+                    </div>
+                  </div></div>
+
+            <div class="row">
+                    <div class="column">
+                            <div class="ui action input" style="width: 100%">
+                                <input type="text" placeholder="Search..." id='q2'>
+                                <button class="ui button" 
+                                style="background-color: #0084ff;
+                                color:#d7efff;
+                                width: 82px" 
+                                id='b2'>知乎</button>
+                            </div>
+                          </div></div>
+
+
+            <div class="row">
+                    <div class="column">
+                            <div class="ui action input" style="width: 100%">
+                                <input type="text" placeholder="Search..." id='q3'>
+                                <button class="ui  button" 
+                                style="background-color: #3385ff;
+                                color:#ffffff;
+                                width: 82px" 
+                                id='b3'>百科</button>
+                            </div>
+                          </div></div>
+
+            <div class="row">
+                <div class="column">
+                        <div class="ui action input" style="width: 100%">
+                            <input type="text" placeholder="Search..." id='q4'>
+                            <button class="ui  button" 
+                            style="
+                            /* background-color: #eeeeee; */
+                            color:#0e0e34;
+                            width: 82px" 
+                            id='b4'>cnblogs</button>
+                        </div>
+                        </div></div>
+            <script>
+            document.getElementById('q1').onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode=='13') {
+                    var q=document.getElementById('q1').value;
+                    // console.log(q)
+                    window.open('http://www.caup.cn/search?q='+q)
+                }};
+            document.getElementById('b1').onclick=function(){
+                var q=document.getElementById('q1').value;
+                // console.log(q)
+                window.open('http://www.caup.cn/search?q='+q)};
+
+            document.getElementById('q2').onkeydown=function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if(e && e.keyCode=='13') {
+                var q=document.getElementById('q2').value;
+                // console.log(q)
+                window.open('https://www.baidu.com/s?wd='+q+' site:zhihu.com')
+            }};
+            document.getElementById('b2').onclick=function(){
+                var q=document.getElementById('q2').value;
+                // console.log(q)
+                window.open('https://www.baidu.com/s?wd='+q+' site:zhihu.com')};
+                
+            document.getElementById('q3').onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode=='13') {
+                    var q=document.getElementById('q3').value;
+                    // console.log(q)
+                    window.open('https://baike.baidu.com/search?word='+q)
+                }};
+            document.getElementById('b3').onclick=function(){
+                var q=document.getElementById('q3').value;
+                // console.log(q)
+                window.open('https://baike.baidu.com/search?word='+q)};
+
+            document.getElementById('q4').onkeydown=function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if(e && e.keyCode=='13') {
+                var q=document.getElementById('q4').value;
+                // console.log(q)
+                window.open('https://zzk.cnblogs.com/s/blogpost?w='+q)
+            }};
+            document.getElementById('b4').onclick=function(){
+                var q=document.getElementById('q4').value;
+                // console.log(q)
+                window.open('https://zzk.cnblogs.com/s/blogpost?w='+q)};
+            </script>
+                
+                
+</body>
+</html>
