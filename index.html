@@ -162,6 +162,7 @@
                             id='b4'>cnblogs</button>
                         </div>
                         </div></div>
+            <br>
             <script>
             document.getElementById('q1').onkeydown=function(event){
                 var e = event || window.event || arguments.callee.caller.arguments[0];
@@ -211,7 +212,36 @@
                 // console.log(q)
                 window.open('https://zzk.cnblogs.com/s/blogpost?w='+q)};
             </script>
-                
+
+    <style>
+    #myCanvas {
+        position: absolute;
+        /* top: 50%;
+        margin-left: 50%; */
+        right: 20px;
+        bottom: 20px;
+    }
+    </style>
+    <canvas id="myCanvas" width="300" height="40" style="border:1px solid #eeea05;">
+    </canvas>
+    <script>
+        var d = new Date();
+        var tstring
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        function timee(d,tstring,c,ctx) {
+            d = new Date();
+            c = document.getElementById("myCanvas");
+            ctx = c.getContext("2d");
+            ctx.clearRect(0,0,300,40)
+            ctx.font = "30px Arial";
+            tstring=d.getMonth()+1+'/'+d.getDate()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+' week'+d.getDay();
+            ctx.fillText(tstring, 10, 30);
+            console.log(tstring)
+        }
+        var t1= window.setInterval("timee(d,tstring,c,ctx)",1000);
+        
+    </script>
                 
 </body>
 </html>
