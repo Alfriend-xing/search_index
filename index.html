@@ -79,22 +79,21 @@
             <script>
                 window.onload=function(){
                     var as=document.getElementsByTagName('a')
-                    for (x in as){
-                        console.log(as[x])
+                    for (let x=0;x<as.length;++x){
                         as[x].getElementsByTagName('img')[0].setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.2)')
                         as[x].onmouseover=function(){
-                            // this.setAttribute("class","float-left shadow-lg")
-                        var inimg=this.getElementsByTagName('img')[0]
-                        inimg.setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.7)')
-                        // inimg.setAttribute('height','70')
-                        // inimg.setAttribute('width','180')
+                                // this.setAttribute("class","float-left shadow-lg")
+                                var inimg=this.getElementsByTagName('img')[0]
+                                inimg.setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.7)')
+                                // inimg.setAttribute('height','70')
+                                // inimg.setAttribute('width','180')
                         }
                         as[x].onmouseout=function(){
-                            this.setAttribute("class","float-left shadow-sm")
-                        var inimg=this.getElementsByTagName('img')[0]
-                        inimg.setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.2)')
-                        // inimg.setAttribute('height','65')
-                        // inimg.setAttribute('width','175')
+                                // this.setAttribute("class","float-left shadow-sm")
+                                var inimg=this.getElementsByTagName('img')[0]
+                                inimg.setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.2)')
+                                // inimg.setAttribute('height','65')
+                                // inimg.setAttribute('width','175')
                         }
                     }
                 }
@@ -223,22 +222,149 @@
         bottom: 20px;
     }
     </style>
-    <canvas id="myCanvas" width="300" height="40" style="border:1px solid #eeea05;">
+    
+    <div style="display: none;">
+    <img id='n0' src="time/0.png" width="43" height="57">
+    <img id='n1' src="time/1.png" width="43" height="57">
+    <img id='n2' src="time/2.png" width="43" height="57">
+    <img id='n3' src="time/3.png" width="43" height="57">
+    <img id='n4' src="time/4.png" width="43" height="57">
+    <img id='n5' src="time/5.png" width="43" height="57">
+    <img id='n6' src="time/6.png" width="43" height="57">
+    <img id='n7' src="time/7.png" width="43" height="57">
+    <img id='n8' src="time/8.png" width="43" height="57">
+    <img id='n9' src="time/9.png" width="43" height="57">
+    <img id='point' src="time/point.png" width="15" height="57">
+    <img id='line' src="time/line.png" width="30" height="57">
+    <img id='w1' src="time/w1.png" width="50" height="50">
+    <img id='w2' src="time/w2.png" width="50" height="50">
+    <img id='w3' src="time/w3.png" width="50" height="50">
+    <img id='w4' src="time/w4.png" width="50" height="50">
+    <img id='w5' src="time/w5.png" width="50" height="50">
+    <img id='w6' src="time/w6.png" width="50" height="50">
+    <img id='w7' src="time/w7.png" width="50" height="50">
+    </div>
+    <canvas id="myCanvas" width="600" height="57">
+            <!-- style="border:1px solid #eeea05;" -->
     </canvas>
     <script>
-        var d = new Date();
+        var d
         var tstring
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
-        function timee(d,tstring,c,ctx) {
+        var ruler
+        // var img = document.getElementById("n0");
+        // ctx.drawImage(img,0,0);
+        // ctx.drawImage(img,85,0);
+        var tms1=[
+            document.getElementById("n0"),
+            document.getElementById("n1"),
+            document.getElementById("n2"),
+            document.getElementById("n3"),
+            document.getElementById("n4"),
+            document.getElementById("n5"),
+            document.getElementById("n6"),
+            document.getElementById("n7"),
+            document.getElementById("n8"),
+            document.getElementById("n9"),]
+        // var tms2=[
+            // weekend0:
+            // weekend0:
+            // weekend0:
+            // weekend0:
+            // weekend0:
+            // weekend0:
+            // weekend0:
+            // weekend0:
+            // weekend0:
+            // weekend0:]
+        var fuhao={
+            point:document.getElementById("point"),
+            line:document.getElementById("line"),}
+        var weeknum=[
+            document.getElementById("w1"),
+            document.getElementById("w2"),
+            document.getElementById("w3"),
+            document.getElementById("w4"),
+            document.getElementById("w5"),
+            document.getElementById("w6"),
+            document.getElementById("w7"),
+        ]
+        var tmp = new Date();
+        if (tmp.getDay()>5){
+            tms=tms2
+        } else {
+            tms=tms1;
+        }
+        function timee() {
             d = new Date();
-            c = document.getElementById("myCanvas");
+            ruler = 0
             ctx = c.getContext("2d");
-            ctx.clearRect(0,0,300,40)
-            ctx.font = "30px Arial";
-            tstring=d.getMonth()+1+'/'+d.getDate()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+' week'+d.getDay();
-            ctx.fillText(tstring, 10, 30);
-            console.log(tstring)
+            ctx.clearRect(0,0,600,57)
+            // ctx.font = "30px Arial";
+            // tstring=d.getMonth()+1+'/'+d.getDate()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+' week'+d.getDay();
+            // ctx.fillText(tstring, 10, 30);
+            if (d.getMonth()>9){
+                ctx.drawImage(tms[1],ruler,0,43,57);
+                ruler=ruler+43
+                ctx.drawImage(tms[d.getMonth()+1-10],ruler,0,43,57);
+                ruler=ruler+43
+            } else {
+                ctx.drawImage(tms[d.getMonth()+1],ruler,0,43,57);
+                ruler=ruler+43
+            }
+            ctx.drawImage(fuhao.line,ruler,0,30,57);
+            ruler=ruler+30
+            if (d.getDate()>9){
+                ctx.drawImage(tms[parseInt(d.getDate()/10)],ruler,0,43,57);
+                ruler=ruler+43
+                ctx.drawImage(tms[d.getDate()%10],ruler,0,43,57);
+                ruler=ruler+43
+            } else {
+                ctx.drawImage(tms[d.getDate()],ruler,0,43,57);
+                ruler=ruler+43
+            }
+            ruler=ruler+10
+            if (d.getHours()>9){
+                ctx.drawImage(tms[parseInt(d.getHours()/10)],ruler,0,43,57);
+                ruler=ruler+43
+                ctx.drawImage(tms[d.getHours()%10],ruler,0,43,57);
+                ruler=ruler+43
+            } else {
+                ctx.drawImage(tms[0],ruler,0,43,57);
+                ruler=ruler+43
+                ctx.drawImage(tms[d.getDate()],ruler,0,43,57);
+                ruler=ruler+43
+            }
+            ctx.drawImage(fuhao.point,ruler,0,15,57);
+            ruler=ruler+15
+            if (d.getMinutes()>9){
+                ctx.drawImage(tms[parseInt(d.getMinutes()/10)],ruler,0,43,57);
+                ruler=ruler+43
+                ctx.drawImage(tms[d.getMinutes()%10],ruler,0,43,57);
+                ruler=ruler+43
+            } else {
+                ctx.drawImage(tms[0],ruler,0,43,57);
+                ruler=ruler+43
+                ctx.drawImage(tms[d.getMinutes()],ruler,0,43,57);
+                ruler=ruler+43
+            }
+            ctx.drawImage(fuhao.point,ruler,0,15,57);
+            ruler=ruler+15
+            if (d.getSeconds()>9){
+                ctx.drawImage(tms[parseInt(d.getSeconds()/10)],ruler,0,43,57);
+                ruler=ruler+43
+                ctx.drawImage(tms[d.getSeconds()%10],ruler,0,43,57);
+                ruler=ruler+43
+            } else {
+                ctx.drawImage(tms[0],ruler,0,43,57);
+                ruler=ruler+43
+                ctx.drawImage(tms[d.getSeconds()],ruler,0,43,57);
+                ruler=ruler+43
+            }
+            ruler=ruler+15
+            ctx.drawImage(weeknum[d.getDay()-1],ruler,7,50,50);
+            // console.log(tstring)
         }
         var t1= window.setInterval("timee(d,tstring,c,ctx)",1000);
         
