@@ -128,10 +128,18 @@
             <div class="row">
                     <div class="column"> 
                         </div></div>
-            <div class="row">
-                    <div class="column"> 
-                        </div></div>
             
+            <div class="row">
+                <div class="column">
+                        <div class="ui action input" style="width: 100%">
+                            <input type="text" placeholder="Search..." id='q0'>
+                            <button class="ui button" 
+                            style="background-color: #24292e;
+                            color:#ffffff;
+                            width: 82px" 
+                                    id='b0'>github</button>
+                        </div>
+                        </div></div>
 
             <div class="row">
             <div class="column">
@@ -184,6 +192,19 @@
                         </div></div>
         </div>
             <script>
+
+            document.getElementById('q0').onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode=='13') {
+                    var q=document.getElementById('q0').value;
+                    // console.log(q)
+                    window.open('https://github.com/search?q='+q)
+                }};
+            document.getElementById('b0').onclick=function(){
+            var q=document.getElementById('q0').value;
+            // console.log(q)
+            window.open('https://github.com/search?q='+q)};
+
             document.getElementById('q1').onkeydown=function(event){
                 var e = event || window.event || arguments.callee.caller.arguments[0];
                 if(e && e.keyCode=='13') {
