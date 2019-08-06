@@ -125,11 +125,32 @@
             <div class="row">
                     <div class="column"> 
                         </div></div>
-            <div class="row">
-                    <div class="column"> 
-                        </div></div>
             
-            <div class="row">
+            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
+                <div class="column">
+                        <div class="ui action input" style="width: 100%">
+                            <input type="text" placeholder="Search..." id='qg'>
+                            <button class="ui button" 
+                            style="background-color: #4285f4;
+                            color:#ffffff;
+                            width: 82px" 
+                                    id='bg'>google</button>
+                        </div>
+                        </div></div>
+
+            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
+                <div class="column">
+                        <div class="ui action input" style="width: 100%">
+                            <input type="text" placeholder="Search..." id='qw'>
+                            <button class="ui button" 
+                            style="background-color: #c6c6c6;
+                            color:#0e0e0e;
+                            width: 82px" 
+                                    id='bw'>wiki</button>
+                        </div>
+                        </div></div>
+                        
+            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
                 <div class="column">
                         <div class="ui action input" style="width: 100%">
                             <input type="text" placeholder="Search..." id='q0'>
@@ -141,7 +162,7 @@
                         </div>
                         </div></div>
 
-            <div class="row">
+            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
             <div class="column">
                     <div class="ui action input" style="width: 100%">
                         <input type="text" placeholder="Search..." id='q1'>
@@ -153,7 +174,7 @@
                     </div>
                   </div></div>
 
-            <div class="row">
+            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
                     <div class="column">
                             <div class="ui action input" style="width: 100%">
                                 <input type="text" placeholder="Search..." id='q2'>
@@ -166,7 +187,7 @@
                           </div></div>
 
 
-            <div class="row">
+            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
                     <div class="column">
                             <div class="ui action input" style="width: 100%">
                                 <input type="text" placeholder="Search..." id='q3'>
@@ -178,7 +199,7 @@
                             </div>
                           </div></div>
 
-            <div class="row">
+            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
                 <div class="column">
                         <div class="ui action input" style="width: 100%">
                             <input type="text" placeholder="Search..." id='q4'>
@@ -192,6 +213,29 @@
                         </div></div>
         </div>
             <script>
+            document.getElementById('qg').onkeydown=function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if(e && e.keyCode=='13') {
+                var q=document.getElementById('qg').value;
+                // console.log(q)
+                window.open('https://www.google.com/search?q='+q)
+            }};
+            document.getElementById('bg').onclick=function(){
+            var q=document.getElementById('qg').value;
+            // console.log(q)
+            window.open('https://www.google.com/search?q='+q)};
+
+            document.getElementById('qw').onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode=='13') {
+                    var q=document.getElementById('qw').value;
+                    // console.log(q)
+                    window.open('https://www.google.com/search?q='+q+' site:wikipedia.org')
+                }};
+            document.getElementById('bw').onclick=function(){
+            var q=document.getElementById('qw').value;
+            // console.log(q)
+            window.open('https://www.google.com/search?q='+q+' site:wikipedia.org')};
 
             document.getElementById('q0').onkeydown=function(event){
                 var e = event || window.event || arguments.callee.caller.arguments[0];
@@ -259,36 +303,36 @@
         position: absolute;
         /* top: 50%;
         margin-left: 50%; */
-        right: 20px;
-        bottom: 20px;
+        left: 2px;
+        bottom: 2px;
     }
     </style>
     
     <div style="display: none;">
-    <img id='n0' src="time/0.png" width="43" height="57">
-    <img id='n1' src="time/1.png" width="43" height="57">
-    <img id='n2' src="time/2.png" width="43" height="57">
-    <img id='n3' src="time/3.png" width="43" height="57">
-    <img id='n4' src="time/4.png" width="43" height="57">
-    <img id='n5' src="time/5.png" width="43" height="57">
-    <img id='n6' src="time/6.png" width="43" height="57">
-    <img id='n7' src="time/7.png" width="43" height="57">
-    <img id='n8' src="time/8.png" width="43" height="57">
-    <img id='n9' src="time/9.png" width="43" height="57">
+    <img id='n0' src="time/0.png" width="25" height="37">
+    <img id='n1' src="time/1.png" width="25" height="37">
+    <img id='n2' src="time/2.png" width="25" height="37">
+    <img id='n3' src="time/3.png" width="25" height="37">
+    <img id='n4' src="time/4.png" width="25" height="37">
+    <img id='n5' src="time/5.png" width="25" height="37">
+    <img id='n6' src="time/6.png" width="25" height="37">
+    <img id='n7' src="time/7.png" width="25" height="37">
+    <img id='n8' src="time/8.png" width="25" height="37">
+    <img id='n9' src="time/9.png" width="25" height="37">
 
-    <img id='nn0' src="time/n0.png" width="43" height="57">
-    <img id='nn1' src="time/n1.png" width="43" height="57">
-    <img id='nn2' src="time/n2.png" width="43" height="57">
-    <img id='nn3' src="time/n3.png" width="43" height="57">
-    <img id='nn4' src="time/n4.png" width="43" height="57">
-    <img id='nn5' src="time/n5.png" width="43" height="57">
-    <img id='nn6' src="time/n6.png" width="43" height="57">
-    <img id='nn7' src="time/n7.png" width="43" height="57">
-    <img id='nn8' src="time/n8.png" width="43" height="57">
-    <img id='nn9' src="time/n9.png" width="43" height="57">
+    <img id='nn0' src="time/n0.png" width="25" height="37">
+    <img id='nn1' src="time/n1.png" width="25" height="37">
+    <img id='nn2' src="time/n2.png" width="25" height="37">
+    <img id='nn3' src="time/n3.png" width="25" height="37">
+    <img id='nn4' src="time/n4.png" width="25" height="37">
+    <img id='nn5' src="time/n5.png" width="25" height="37">
+    <img id='nn6' src="time/n6.png" width="25" height="37">
+    <img id='nn7' src="time/n7.png" width="25" height="37">
+    <img id='nn8' src="time/n8.png" width="25" height="37">
+    <img id='nn9' src="time/n9.png" width="25" height="37">
     
-    <img id='point' src="time/point.png" width="15" height="57">
-    <img id='line' src="time/line.png" width="30" height="57">
+    <img id='point' src="time/point.png" width="15" height="37">
+    <img id='line' src="time/line.png" width="30" height="37">
     <img id='w1' src="time/w1.png" width="50" height="50">
     <img id='w2' src="time/w2.png" width="50" height="50">
     <img id='w3' src="time/w3.png" width="50" height="50">
@@ -297,7 +341,7 @@
     <img id='w6' src="time/w6.png" width="50" height="50">
     <img id='w7' src="time/w7.png" width="50" height="50">
     </div>
-    <canvas id="myCanvas" width="600" height="57">
+    <canvas id="myCanvas" width="600" height="37">
             <!-- style="border:1px solid #eeea05;" -->
     </canvas>
     <script>
@@ -357,75 +401,93 @@
             d = new Date();
             ruler = 0
             ctx = c.getContext("2d");
-            ctx.clearRect(0,0,600,57)
+            ctx.clearRect(0,0,600,37)
             // ctx.font = "30px Arial";
             // tstring=d.getMonth()+1+'/'+d.getDate()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+' week'+d.getDay();
             // ctx.fillText(tstring, 10, 30);
             if (d.getMonth()>9){
-                ctx.drawImage(tms[1],ruler,0,43,57);
-                ruler=ruler+43
-                ctx.drawImage(tms[d.getMonth()+1-10],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[1],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getMonth()+1-10],ruler,0,25,37);
+                ruler=ruler+25
             } else {
-                ctx.drawImage(tms[d.getMonth()+1],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[d.getMonth()+1],ruler,0,25,37);
+                ruler=ruler+25
             }
-            ctx.drawImage(fuhao.line,ruler,0,30,57);
-            ruler=ruler+30
+            ctx.drawImage(fuhao.line,ruler,0,18,37);
+            ruler=ruler+18
             if (d.getDate()>9){
-                ctx.drawImage(tms[parseInt(d.getDate()/10)],ruler,0,43,57);
-                ruler=ruler+43
-                ctx.drawImage(tms[d.getDate()%10],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[parseInt(d.getDate()/10)],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getDate()%10],ruler,0,25,37);
+                ruler=ruler+25
             } else {
-                ctx.drawImage(tms[d.getDate()],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[d.getDate()],ruler,0,25,37);
+                ruler=ruler+25
             }
             ruler=ruler+10
             if (d.getHours()>9){
-                ctx.drawImage(tms[parseInt(d.getHours()/10)],ruler,0,43,57);
-                ruler=ruler+43
-                ctx.drawImage(tms[d.getHours()%10],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[parseInt(d.getHours()/10)],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getHours()%10],ruler,0,25,37);
+                ruler=ruler+25
             } else {
-                ctx.drawImage(tms[0],ruler,0,43,57);
-                ruler=ruler+43
-                ctx.drawImage(tms[d.getHours()],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[0],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getHours()],ruler,0,25,37);
+                ruler=ruler+25
             }
-            ctx.drawImage(fuhao.point,ruler,0,15,57);
+            ctx.drawImage(fuhao.point,ruler,0,15,37);
             ruler=ruler+15
             if (d.getMinutes()>9){
-                ctx.drawImage(tms[parseInt(d.getMinutes()/10)],ruler,0,43,57);
-                ruler=ruler+43
-                ctx.drawImage(tms[d.getMinutes()%10],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[parseInt(d.getMinutes()/10)],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getMinutes()%10],ruler,0,25,37);
+                ruler=ruler+25
             } else {
-                ctx.drawImage(tms[0],ruler,0,43,57);
-                ruler=ruler+43
-                ctx.drawImage(tms[d.getMinutes()],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[0],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getMinutes()],ruler,0,25,37);
+                ruler=ruler+25
             }
-            ctx.drawImage(fuhao.point,ruler,0,15,57);
+            ctx.drawImage(fuhao.point,ruler,0,15,37);
             ruler=ruler+15
             if (d.getSeconds()>9){
-                ctx.drawImage(tms[parseInt(d.getSeconds()/10)],ruler,0,43,57);
-                ruler=ruler+43
-                ctx.drawImage(tms[d.getSeconds()%10],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[parseInt(d.getSeconds()/10)],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getSeconds()%10],ruler,0,25,37);
+                ruler=ruler+25
             } else {
-                ctx.drawImage(tms[0],ruler,0,43,57);
-                ruler=ruler+43
-                ctx.drawImage(tms[d.getSeconds()],ruler,0,43,57);
-                ruler=ruler+43
+                ctx.drawImage(tms[0],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getSeconds()],ruler,0,25,37);
+                ruler=ruler+25
             }
-            ruler=ruler+15
-            ctx.drawImage(weeknum[d.getDay()],ruler,7,50,50);
+            ruler=ruler+8
+            ctx.drawImage(weeknum[d.getDay()],ruler,5,30,30);
             // console.log(tstring)
         }
         var t1= window.setInterval("timee(d,tstring,c,ctx)",1000);
         
     </script>
-                
+<style>
+    #iplo {
+        position: absolute;
+        /* top: 50%;
+        margin-left: 50%; */
+        right: 2px;
+        bottom: 2px;
+    }
+</style>
+<div id=iplo></div>
+
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">  
+    var google_logo="<img src='https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png' width='80' height='20' />"+"</br>"
+    var m=returnCitySN["cip"]+'</br>'+returnCitySN["cname"]+"</br>"
+    var x=document.getElementById("iplo").innerHTML=google_logo+m
+    // console.log(returnCitySN["cip"]+','+returnCitySN["cname"])  
+</script>
+
 </body>
 </html>
