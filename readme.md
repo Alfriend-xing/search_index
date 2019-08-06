@@ -1,5 +1,6 @@
 ### todo
-- 添加google，wiki
+- 添加google，wikien和wikizh
+- 添加代理检测，随便找个被强的api发个请求，能成功接收则显示绿色状态
 
 ### 添加常用导航 
 - python3
