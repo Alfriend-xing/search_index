@@ -488,6 +488,34 @@
     var x=document.getElementById("iplo").innerHTML=google_logo+m
     // console.log(returnCitySN["cip"]+','+returnCitySN["cname"])  
 </script>
-
+<script>
+        function measureBW(fn) {
+        var startTime, endTime, fileSize;
+    
+        var xhr = new XMLHttpRequest();
+    
+        xhr.onreadystatechange = () => {
+            if(xhr.readyState === 2){
+                startTime = Date.now();
+            }
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                endTime = Date.now();
+                fileSize = xhr.responseText.length;
+                var speed = fileSize  / ((endTime - startTime)/1000) / 1024;
+                fn && fn(Math.floor(speed))
+            }
+        }
+    
+        xhr.open("GET", "https://upload.wikimedia.org/wikipedia/commons/5/51/Google.png", true);
+        xhr.send();
+    }
+    
+    measureBW((speed)=>{
+        // console.log(speed + " KB/sec");  //215 KB/sec
+        var para = document.getElementById("iplo");
+        var node = document.createTextNode(speed + " KB/sec");
+        para.appendChild(node);
+    })
+        </script>
 </body>
 </html>
