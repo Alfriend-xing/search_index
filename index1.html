@@ -321,7 +321,179 @@
                 // console.log(q)
                 window.open('https://zzk.cnblogs.com/s/blogpost?w='+q)};
             </script>
+
+    <style>
+    #myCanvas {
+        position: absolute;
+        /* top: 50%;
+        margin-left: 50%; */
+        left: 2px;
+        bottom: 2px;
+    }
+    </style>
+    
+    <div style="display: none;">
+    <img id='n0' src="time/0.png" width="25" height="37">
+    <img id='n1' src="time/1.png" width="25" height="37">
+    <img id='n2' src="time/2.png" width="25" height="37">
+    <img id='n3' src="time/3.png" width="25" height="37">
+    <img id='n4' src="time/4.png" width="25" height="37">
+    <img id='n5' src="time/5.png" width="25" height="37">
+    <img id='n6' src="time/6.png" width="25" height="37">
+    <img id='n7' src="time/7.png" width="25" height="37">
+    <img id='n8' src="time/8.png" width="25" height="37">
+    <img id='n9' src="time/9.png" width="25" height="37">
+
+    <img id='nn0' src="time/n0.png" width="25" height="37">
+    <img id='nn1' src="time/n1.png" width="25" height="37">
+    <img id='nn2' src="time/n2.png" width="25" height="37">
+    <img id='nn3' src="time/n3.png" width="25" height="37">
+    <img id='nn4' src="time/n4.png" width="25" height="37">
+    <img id='nn5' src="time/n5.png" width="25" height="37">
+    <img id='nn6' src="time/n6.png" width="25" height="37">
+    <img id='nn7' src="time/n7.png" width="25" height="37">
+    <img id='nn8' src="time/n8.png" width="25" height="37">
+    <img id='nn9' src="time/n9.png" width="25" height="37">
+    
+    <img id='point' src="time/point.png" width="15" height="37">
+    <img id='line' src="time/line.png" width="30" height="37">
+    <img id='w1' src="time/w1.png" width="50" height="50">
+    <img id='w2' src="time/w2.png" width="50" height="50">
+    <img id='w3' src="time/w3.png" width="50" height="50">
+    <img id='w4' src="time/w4.png" width="50" height="50">
+    <img id='w5' src="time/w5.png" width="50" height="50">
+    <img id='w6' src="time/w6.png" width="50" height="50">
+    <img id='w7' src="time/w7.png" width="50" height="50">
+    </div>
+    <canvas id="myCanvas" width="600" height="37">
+            <!-- style="border:1px solid #eeea05;" -->
+    </canvas>
+    <script>
+        var d
+        var tstring
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        var ruler
+        // var img = document.getElementById("n0");
+        // ctx.drawImage(img,0,0);
+        // ctx.drawImage(img,85,0);
+        var tms1=[
+            document.getElementById("n0"),
+            document.getElementById("n1"),
+            document.getElementById("n2"),
+            document.getElementById("n3"),
+            document.getElementById("n4"),
+            document.getElementById("n5"),
+            document.getElementById("n6"),
+            document.getElementById("n7"),
+            document.getElementById("n8"),
+            document.getElementById("n9"),]
+        var tms2=[
+            document.getElementById("nn0"),
+            document.getElementById("nn1"),
+            document.getElementById("nn2"),
+            document.getElementById("nn3"),
+            document.getElementById("nn4"),
+            document.getElementById("nn5"),
+            document.getElementById("nn6"),
+            document.getElementById("nn7"),
+            document.getElementById("nn8"),
+            document.getElementById("nn9"),]
+        var fuhao={
+            point:document.getElementById("point"),
+            line:document.getElementById("line"),}
+        var weeknum=[
+            document.getElementById("w7"),
+            document.getElementById("w1"),
+            document.getElementById("w2"),
+            document.getElementById("w3"),
+            document.getElementById("w4"),
+            document.getElementById("w5"),
+            document.getElementById("w6"),
             
+        ]
+        var tmp = new Date();
+        if (tmp.getDay()==0){
+            tms=tms2
+        } 
+        else if (tmp.getDay()==6){
+            tms=tms2
+        } else {
+            tms=tms1;
+        }
+        function timee() {
+            d = new Date();
+            ruler = 0
+            ctx = c.getContext("2d");
+            ctx.clearRect(0,0,600,37)
+            // ctx.font = "30px Arial";
+            // tstring=d.getMonth()+1+'/'+d.getDate()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()+' week'+d.getDay();
+            // ctx.fillText(tstring, 10, 30);
+            if (d.getMonth()>9){
+                ctx.drawImage(tms[1],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getMonth()+1-10],ruler,0,25,37);
+                ruler=ruler+25
+            } else {
+                ctx.drawImage(tms[d.getMonth()+1],ruler,0,25,37);
+                ruler=ruler+25
+            }
+            ctx.drawImage(fuhao.line,ruler,0,18,37);
+            ruler=ruler+18
+            if (d.getDate()>9){
+                ctx.drawImage(tms[parseInt(d.getDate()/10)],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getDate()%10],ruler,0,25,37);
+                ruler=ruler+25
+            } else {
+                ctx.drawImage(tms[d.getDate()],ruler,0,25,37);
+                ruler=ruler+25
+            }
+            ruler=ruler+10
+            if (d.getHours()>9){
+                ctx.drawImage(tms[parseInt(d.getHours()/10)],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getHours()%10],ruler,0,25,37);
+                ruler=ruler+25
+            } else {
+                ctx.drawImage(tms[0],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getHours()],ruler,0,25,37);
+                ruler=ruler+25
+            }
+            ctx.drawImage(fuhao.point,ruler,0,15,37);
+            ruler=ruler+15
+            if (d.getMinutes()>9){
+                ctx.drawImage(tms[parseInt(d.getMinutes()/10)],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getMinutes()%10],ruler,0,25,37);
+                ruler=ruler+25
+            } else {
+                ctx.drawImage(tms[0],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getMinutes()],ruler,0,25,37);
+                ruler=ruler+25
+            }
+            ctx.drawImage(fuhao.point,ruler,0,15,37);
+            ruler=ruler+15
+            if (d.getSeconds()>9){
+                ctx.drawImage(tms[parseInt(d.getSeconds()/10)],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getSeconds()%10],ruler,0,25,37);
+                ruler=ruler+25
+            } else {
+                ctx.drawImage(tms[0],ruler,0,25,37);
+                ruler=ruler+25
+                ctx.drawImage(tms[d.getSeconds()],ruler,0,25,37);
+                ruler=ruler+25
+            }
+            ruler=ruler+8
+            ctx.drawImage(weeknum[d.getDay()],ruler,5,30,30);
+            // console.log(tstring)
+        }
+        var t1= window.setInterval("timee(d,tstring,c,ctx)",1000);
+        
+    </script>
 <style>
     #iplo {
         position: absolute;
@@ -340,5 +512,34 @@
     var x=document.getElementById("iplo").innerHTML=google_logo+m
     // console.log(returnCitySN["cip"]+','+returnCitySN["cname"])  
 </script>
+<script>
+        function measureBW(fn) {
+        var startTime, endTime, fileSize;
+    
+        var xhr = new XMLHttpRequest();
+    
+        xhr.onreadystatechange = () => {
+            if(xhr.readyState === 2){
+                startTime = Date.now();
+            }
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                endTime = Date.now();
+                fileSize = xhr.responseText.length;
+                var speed = fileSize  / ((endTime - startTime)/1000) / 1024;
+                fn && fn(Math.floor(speed))
+            }
+        }
+    
+        xhr.open("GET", "https://upload.wikimedia.org/wikipedia/commons/5/51/Google.png", true);
+        xhr.send();
+    }
+    
+    measureBW((speed)=>{
+        // console.log(speed + " KB/sec");  //215 KB/sec
+        var para = document.getElementById("iplo");
+        var node = document.createTextNode(speed + " KB/sec");
+        para.appendChild(node);
+    })
+        </script>
 </body>
 </html>
