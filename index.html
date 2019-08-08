@@ -161,6 +161,18 @@
                                     id='b0'>github</button>
                         </div>
                         </div></div>
+            
+            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
+                <div class="column">
+                        <div class="ui action input" style="width: 100%">
+                            <input type="text" placeholder="Search..." id='q_quora'>
+                            <button class="ui button" 
+                            style="background-color: #b92b27;
+                            color:#ffffff;
+                            width: 82px" 
+                                    id='b_quora'>quora</button>
+                        </div>
+                        </div></div>
 
             <div class="row" style="padding: 1rem 1rem 0rem 1rem">
             <div class="column">
@@ -236,6 +248,18 @@
             var q=document.getElementById('qw').value;
             // console.log(q)
             window.open('https://www.google.com/search?q='+q+' site:wikipedia.org')};
+
+            document.getElementById('q_quora').onkeydown=function(event){
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if(e && e.keyCode=='13') {
+                    var q=document.getElementById('q_quora').value;
+                    // console.log(q)
+                    window.open('https://www.google.com/search?q='+q+' site:quora.com')
+                }};
+            document.getElementById('b_quora').onclick=function(){
+            var q=document.getElementById('q_quora').value;
+            // console.log(q)
+            window.open('https://www.google.com/search?q='+q+' site:quora.com')};
 
             document.getElementById('q0').onkeydown=function(event){
                 var e = event || window.event || arguments.callee.caller.arguments[0];
