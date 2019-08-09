@@ -4,324 +4,214 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <title>search index</title>
 </head>
 <body>
-
-      <div class="ui three column centered grid">
-
-            <div class="row" style="margin: 1rem 1rem 0rem 1rem">
-                <div class="float-left" style="margin: 5px">
-                <a href='https://docs.python.org/3/' target="_blank" draggable="false">
-                    <img src='python.png' height="50" width="135" draggable="false">
-                </a>
-                </div>
-                
-                <div class="float-left" style="margin: 5px">
-                        <a href='https://github.com' target="_blank" draggable="false">
-                            <img src='github.png' height="50" width="135" draggable="false">
-                        </a>
-                        </div>
-
-                <div class="float-left" style="margin: 5px">
-                        <a href='https://getbootstrap.com/docs/4.3/getting-started/introduction/' target="_blank" draggable="false">
-                            <img src='bootstrap.png' height="50" width="135" draggable="false">
-                        </a>
-                        </div>
-
-                <div class="float-left" style="margin: 5px">
-                        <a href='https://api.jquery.com/' target="_blank" draggable="false">
-                            <img src='jquery.png' height="50" width="135" draggable="false">
-                        </a>
-                        </div>
-
-                <div class="float-left" style="margin: 5px">
-                        <a href='https://docs.oracle.com/javase/8/docs/api/' target="_blank" draggable="false">
-                            <img src='java.png' height="50" width="135" draggable="false">
-                        </a>
-                        </div>
-
-                <div class="float-left" style="margin: 5px">
-                        <a href='https://www.rabbitmq.com/' target="_blank" draggable="false">
-                            <img src='rabbitmq.png' height="50" width="135" draggable="false">
-                        </a>
-                        </div>
-
-                <div class="float-left" style="margin: 5px">
-                        <a href='https://spring.io/guides' target="_blank" draggable="false">
-                            <img src='spring.png' height="50" width="135" draggable="false">
-                        </a>
-                        </div>
-
-                <div class="float-left" style="margin: 5px">
-                        <a href='https://seleniumhq.github.io/selenium/docs/api/py/api.html' target="_blank" draggable="false">
-                            <img src='selenium.png' height="50" width="135" draggable="false">
-                        </a>
-                        </div>
-
-                <div class="float-left" style="margin: 5px">
-                        <a href='https://www.w3schools.com/html/' target="_blank" draggable="false">
-                            <img src='html.png' height="50" width="135" draggable="false">
-                        </a>
-                        </div>
-                
-                <div class="float-left" style="margin: 5px">
-                        <a href='https://developer.mozilla.org/zh-CN/docs/Web' target="_blank" draggable="false">
-                            <img src='mdn.png' height="50" width="135" draggable="false">
-                        </a>
-                        </div>
-                <div class="float-left" style="margin: 5px">
-                    <a href='https://facebook.github.io/react-native/' target="_blank" draggable="false">
-                        <img src='rn.png' height="50" width="135" draggable="false">
-                    </a>
-                    </div>
-                <div class="float-left" style="margin: 5px">
-                    <a href='https://reactnative.cn/' target="_blank" draggable="false">
-                        <img src='rnzh.png' height="50" width="135" draggable="false">
-                    </a>
-                    </div>
-                <div class="float-left" style="margin: 5px">
-                    <a href='https://material-ui.com/' target="_blank" draggable="false">
-                        <img src='materialui.png' height="50" width="135" draggable="false">
-                    </a>
-                    </div>
-                <div class="float-left" style="margin: 5px">
-                    <a href='https://reactjs.org/' target="_blank" draggable="false">
-                        <img src='react.png' height="50" width="135" draggable="false">
-                    </a>
-                    </div>
-
-            </div>
-            <script>
-                window.onload=function(){
-                    var as=document.getElementsByTagName('a')
-                    for (let x=0;x<as.length;++x){
-                        as[x].getElementsByTagName('img')[0].setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.2)')
-                        as[x].onmouseover=function(){
-                                // this.setAttribute("class","float-left shadow-lg")
-                                var inimg=this.getElementsByTagName('img')[0]
-                                inimg.setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.7)')
-                                // inimg.setAttribute('height','70')
-                                // inimg.setAttribute('width','180')
-                        }
-                        as[x].onmouseout=function(){
-                                // this.setAttribute("class","float-left shadow-sm")
-                                var inimg=this.getElementsByTagName('img')[0]
-                                inimg.setAttribute('style','box-shadow:0 .5rem 1rem rgba(0,0,0,0.2)')
-                                // inimg.setAttribute('height','65')
-                                // inimg.setAttribute('width','175')
-                        }
-                    }
-                }
-            
-            </script>
-            <div class="row">
-                    <div class="column"> 
-                        </div></div>
-            <div class="row">
-                    <div class="column"> 
-                        </div></div>
-            
-            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
-                <div class="column">
-                        <div class="ui action input" style="width: 100%">
-                            <input type="text" placeholder="Search..." id='qg'>
-                            <button class="ui button" 
-                            style="background-color: #4285f4;
-                            color:#ffffff;
-                            width: 82px" 
-                                    id='bg'>google</button>
-                        </div>
-                        </div></div>
-
-            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
-                <div class="column">
-                        <div class="ui action input" style="width: 100%">
-                            <input type="text" placeholder="Search..." id='qw'>
-                            <button class="ui button" 
-                            style="background-color: #c6c6c6;
-                            color:#0e0e0e;
-                            width: 82px" 
-                                    id='bw'>wiki</button>
-                        </div>
-                        </div></div>
-                        
-            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
-                <div class="column">
-                        <div class="ui action input" style="width: 100%">
-                            <input type="text" placeholder="Search..." id='q0'>
-                            <button class="ui button" 
-                            style="background-color: #24292e;
-                            color:#ffffff;
-                            width: 82px" 
-                                    id='b0'>github</button>
-                        </div>
-                        </div></div>
-            
-            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
-                <div class="column">
-                        <div class="ui action input" style="width: 100%">
-                            <input type="text" placeholder="Search..." id='q_quora'>
-                            <button class="ui button" 
-                            style="background-color: #b92b27;
-                            color:#ffffff;
-                            width: 82px" 
-                                    id='b_quora'>quora</button>
-                        </div>
-                        </div></div>
-
-            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
-            <div class="column">
-                    <div class="ui action input" style="width: 100%">
-                        <input type="text" placeholder="Search..." id='q1'>
-                        <button class="ui button" 
-                        style="background-color: #40acb7;
-                        color:#ffffff;
-                        width: 82px" 
-                                id='b1'>birdso</button>
-                    </div>
-                  </div></div>
-
-            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
-                    <div class="column">
-                            <div class="ui action input" style="width: 100%">
-                                <input type="text" placeholder="Search..." id='q2'>
-                                <button class="ui button" 
-                                style="background-color: #0084ff;
-                                color:#ffffff;
-                                width: 82px" 
-                                id='b2'>知乎</button>
-                            </div>
-                          </div></div>
-
-
-            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
-                    <div class="column">
-                            <div class="ui action input" style="width: 100%">
-                                <input type="text" placeholder="Search..." id='q3'>
-                                <button class="ui  button" 
-                                style="background-color: #3385ff;
-                                color:#ffffff;
-                                width: 82px" 
-                                id='b3'>百科</button>
-                            </div>
-                          </div></div>
-
-            <div class="row" style="padding: 1rem 1rem 0rem 1rem">
-                <div class="column">
-                        <div class="ui action input" style="width: 100%">
-                            <input type="text" placeholder="Search..." id='q4'>
-                            <button class="ui  button" 
-                            style="
-                            /* background-color: #eeeeee; */
-                            color:#0e0e34;
-                            width: 82px" 
-                            id='b4'>cnblogs</button>
-                        </div>
-                        </div></div>
+        <div class="container p-1">
         </div>
-            <script>
-            document.getElementById('qg').onkeydown=function(event){
+      <ul class="list-group list-group-flush list-group-horizontal justify-content-center d-flex flex-wrap">
+        <li class="list-group-item p-1">
+            <a href='https://docs.python.org/3/' target="_blank" draggable="false">
+                <img class="border" src='python.png' height="50" width="135" draggable="false">
+            </a></li>
+        <li class="list-group-item p-1"><a href='https://github.com' target="_blank" draggable="false">
+            <img class="border" src='github.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://getbootstrap.com/docs/4.3/getting-started/introduction/' target="_blank" draggable="false">
+            <img class="border" src='bootstrap.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://api.jquery.com/' target="_blank" draggable="false">
+            <img class="border" src='jquery.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://docs.oracle.com/javase/8/docs/api/' target="_blank" draggable="false">
+            <img class="border" src='java.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://www.rabbitmq.com/' target="_blank" draggable="false">
+            <img class="border" src='rabbitmq.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://spring.io/guides' target="_blank" draggable="false">
+            <img class="border" src='spring.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://seleniumhq.github.io/selenium/docs/api/py/api.html' target="_blank" draggable="false">
+            <img class="border" src='selenium.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://www.w3schools.com/html/' target="_blank" draggable="false">
+            <img class="border" src='html.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://developer.mozilla.org/zh-CN/docs/Web' target="_blank" draggable="false">
+            <img class="border" src='mdn.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://facebook.github.io/react-native/' target="_blank" draggable="false">
+            <img class="border" src='rn.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://reactnative.cn/' target="_blank" draggable="false">
+            <img class="border" src='rnzh.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://material-ui.com/' target="_blank" draggable="false">
+            <img class="border" src='materialui.png' height="50" width="135" draggable="false">
+        </a></li>
+        <li class="list-group-item p-1"><a href='https://reactjs.org/' target="_blank" draggable="false">
+            <img class="border" src='react.png' height="50" width="135" draggable="false">
+        </a></li>
+      </ul>
+
+      <div class="container">
+            <div class="row p-5">
+              <div class="col-sm">
+                  
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm col-md-5">
+                <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3" style="background-color: #4285f4;
+                            color:#ffffff;">google</span>
+                        </div>
+                        <input type="text" class="form-control" id="q_google" aria-describedby="basic-addon3">
+                        </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm col-md-5">
+                <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3" style="background-color: #c6c6c6;
+                            color:#0e0e0e;"> wiki</span>
+                        </div>
+                        <input type="text" class="form-control" id="q_wiki" aria-describedby="basic-addon3">
+                        </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm col-md-5">
+                <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3" style="background-color: #24292e;
+                            color:#ffffff;">github</span>
+                        </div>
+                        <input type="text" class="form-control" id="q_github" aria-describedby="basic-addon3">
+                        </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm col-md-5">
+                <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3" style="background-color: #b92b27;
+                            color:#ffffff;"> quora</span>
+                        </div>
+                        <input type="text" class="form-control" id="q_quora" aria-describedby="basic-addon3">
+                        </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm col-md-5">
+                <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3" style="background-color: #40acb7;
+                            color:#ffffff;">birdso</span>
+                        </div>
+                        <input type="text" class="form-control" id="q_birdso" aria-describedby="basic-addon3">
+                        </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm col-md-5">
+                <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3" style="background-color: #0084ff;
+                            color:#ffffff;">知乎</span>
+                        </div>
+                        <input type="text" class="form-control" id="q_zhihu" aria-describedby="basic-addon3">
+                        </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm col-md-5">
+                <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3" style="background-color: #3385ff;
+                            color:#ffffff;">百科</span>
+                        </div>
+                        <input type="text" class="form-control" id="q_baike" aria-describedby="basic-addon3">
+                        </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-sm col-md-5">
+                <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon3" style="background-color: #eeeeee;
+                            color:#0e0e34;">cnblogs</span>
+                        </div>
+                        <input type="text" class="form-control" id="q_cnblogs" aria-describedby="basic-addon3">
+                        </div>
+              </div>
+            </div>
+          </div>
+<script>
+document.getElementById('q_google').onkeydown=function(event){
             var e = event || window.event || arguments.callee.caller.arguments[0];
             if(e && e.keyCode=='13') {
-                var q=document.getElementById('qg').value;
+                var q=document.getElementById('q_google').value;
                 // console.log(q)
                 window.open('https://www.google.com/search?q='+q)
             }};
-            document.getElementById('bg').onclick=function(){
-            var q=document.getElementById('qg').value;
-            // console.log(q)
-            window.open('https://www.google.com/search?q='+q)};
-
-            document.getElementById('qw').onkeydown=function(event){
-                var e = event || window.event || arguments.callee.caller.arguments[0];
-                if(e && e.keyCode=='13') {
-                    var q=document.getElementById('qw').value;
-                    // console.log(q)
-                    window.open('https://www.google.com/search?q='+q+' site:wikipedia.org')
-                }};
-            document.getElementById('bw').onclick=function(){
-            var q=document.getElementById('qw').value;
-            // console.log(q)
-            window.open('https://www.google.com/search?q='+q+' site:wikipedia.org')};
-
-            document.getElementById('q_quora').onkeydown=function(event){
-                var e = event || window.event || arguments.callee.caller.arguments[0];
-                if(e && e.keyCode=='13') {
-                    var q=document.getElementById('q_quora').value;
-                    // console.log(q)
-                    window.open('https://www.google.com/search?q='+q+' site:quora.com')
-                }};
-            document.getElementById('b_quora').onclick=function(){
-            var q=document.getElementById('q_quora').value;
-            // console.log(q)
-            window.open('https://www.google.com/search?q='+q+' site:quora.com')};
-
-            document.getElementById('q0').onkeydown=function(event){
-                var e = event || window.event || arguments.callee.caller.arguments[0];
-                if(e && e.keyCode=='13') {
-                    var q=document.getElementById('q0').value;
-                    // console.log(q)
-                    window.open('https://github.com/search?q='+q)
-                }};
-            document.getElementById('b0').onclick=function(){
-            var q=document.getElementById('q0').value;
-            // console.log(q)
-            window.open('https://github.com/search?q='+q)};
-
-            document.getElementById('q1').onkeydown=function(event){
-                var e = event || window.event || arguments.callee.caller.arguments[0];
-                if(e && e.keyCode=='13') {
-                    var q=document.getElementById('q1').value;
-                    // console.log(q)
-                    window.open('http://www.caup.cn/search?q='+q)
-                }};
-            document.getElementById('b1').onclick=function(){
-                var q=document.getElementById('q1').value;
-                // console.log(q)
-                window.open('http://www.caup.cn/search?q='+q)};
-
-            document.getElementById('q2').onkeydown=function(event){
+document.getElementById('q_wiki').onkeydown=function(event){
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    if(e && e.keyCode=='13') {
+        var q=document.getElementById('q_wiki').value;
+        // console.log(q)
+        window.open('https://www.google.com/search?q='+q+' site:wikipedia.org')
+    }};
+document.getElementById('q_quora').onkeydown=function(event){
             var e = event || window.event || arguments.callee.caller.arguments[0];
             if(e && e.keyCode=='13') {
-                var q=document.getElementById('q2').value;
+                var q=document.getElementById('q_quora').value;
                 // console.log(q)
-                window.open('https://www.baidu.com/s?wd='+q+' site:zhihu.com')
+                window.open('https://www.google.com/search?q='+q+' site:quora.com')
             }};
-            document.getElementById('b2').onclick=function(){
-                var q=document.getElementById('q2').value;
+document.getElementById('q_github').onkeydown=function(event){
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    if(e && e.keyCode=='13') {
+        var q=document.getElementById('q_github').value;
+        // console.log(q)
+        window.open('https://github.com/search?q='+q)
+    }};
+document.getElementById('q_birdso').onkeydown=function(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if(e && e.keyCode=='13') {
+                var q=document.getElementById('q_birdso').value;
                 // console.log(q)
-                window.open('https://www.baidu.com/s?wd='+q+' site:zhihu.com')};
-                
-            document.getElementById('q3').onkeydown=function(event){
+                window.open('http://www.caup.cn/search?q='+q)
+            }};
+document.getElementById('q_zhihu').onkeydown=function(event){
+var e = event || window.event || arguments.callee.caller.arguments[0];
+if(e && e.keyCode=='13') {
+    var q=document.getElementById('q_zhihu').value;
+    // console.log(q)
+    window.open('https://www.baidu.com/s?wd='+q+' site:zhihu.com')
+}};
+document.getElementById('q_baike').onkeydown=function(event){
                 var e = event || window.event || arguments.callee.caller.arguments[0];
                 if(e && e.keyCode=='13') {
-                    var q=document.getElementById('q3').value;
+                    var q=document.getElementById('q_baike').value;
                     // console.log(q)
                     window.open('https://baike.baidu.com/search?word='+q)
                 }};
-            document.getElementById('b3').onclick=function(){
-                var q=document.getElementById('q3').value;
-                // console.log(q)
-                window.open('https://baike.baidu.com/search?word='+q)};
-
-            document.getElementById('q4').onkeydown=function(event){
+document.getElementById('q_cnblogs').onkeydown=function(event){
             var e = event || window.event || arguments.callee.caller.arguments[0];
             if(e && e.keyCode=='13') {
-                var q=document.getElementById('q4').value;
+                var q=document.getElementById('q_cnblogs').value;
                 // console.log(q)
                 window.open('https://zzk.cnblogs.com/s/blogpost?w='+q)
             }};
-            document.getElementById('b4').onclick=function(){
-                var q=document.getElementById('q4').value;
-                // console.log(q)
-                window.open('https://zzk.cnblogs.com/s/blogpost?w='+q)};
-            </script>
-            
+
+</script>
+     
 <style>
     #iplo {
         position: absolute;
