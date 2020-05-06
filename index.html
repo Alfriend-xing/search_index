@@ -59,18 +59,39 @@
     </script>
 
     <script>
-        var searchlist=[["google"],
-                        ["知乎"],
-                        ["python doc"],
-                        ["java doc"],
-                        ["spring doc"],
-                        ["github"],
-                        ["wiki"],
-                        ["百度百科"]]
-
-        function search(id) {
+        var searchtype=0
+        var location_id = 0    // 0 墙内 1 墙外
+        var google_link="https://www.google.com/search?q="
+        var google=[["google",google_link,""],
+                        ["知乎",google_link," site:zhihu.com"],
+                        ["python doc",google_link," site:docs.python.org"],
+                        ["java doc",google_link," site:docs.oracle.com/javase/8/docs/api"],
+                        ["spring doc",google_link," site:docs.spring.io"],
+                        ["github","https://github.com/search?q=",""],
+                        ["wiki",google_link," site:wikipedia.org"],
+                        ["百度百科","https://baike.baidu.com/search?word=",""]]
+        var baidu_link = "https://www.baidu.com/s?wd="
+        var baidu=[["google",google_link,""],
+                        ["知乎",baidu_link," site:zhihu.com"],
+                        ["python doc",baidu_link," site:docs.python.org"],
+                        ["java doc",baidu_link," site:docs.oracle.com/javase/8/docs/api"],
+                        ["spring doc",baidu_link," site:docs.spring.io"],
+                        ["github","https://github.com/search?q=",""],
+                        ["wiki",baidu_link," site:wikipedia.org"],
+                        ["百度百科","https://baike.baidu.com/search?word=",""]]
+        tool=[baidu,google]
+        function set_search_type(id) {
+            searchlist=tool[location_id]
             let stext = document.getElementById("searchtext")
-            stext.innerHTML = searchlist[id]
+            stext.innerHTML = searchlist[id][0]
+            searchtype=id
+        }
+
+        function search(){
+            searchlist=tool[location_id]
+            let text = document.getElementById("searchkey").value
+            let search_link=searchlist[searchtype][1]+text+searchlist[searchtype][2]
+            window.open(search_link)
         }
     </script>
 
@@ -86,39 +107,49 @@
                       google
                   </button>
                   <ul class="dropdown-menu">
-                    <li class="dropdown-item" onclick=search(0)>google</li>
-                    <li class="dropdown-item" onclick=search(1)>知乎</li>
-                    <li class="dropdown-item" onclick=search(2)>python doc</li>
-                    <li class="dropdown-item" onclick=search(3)>java doc</li>
-                    <li class="dropdown-item" onclick=search(4)>spring doc</li>
-                    <li class="dropdown-item" onclick=search(5)>github</li>
-                    <li class="dropdown-item" onclick=search(6)>wiki</li>
-                    <li class="dropdown-item" onclick=search(7)>百度百科</li>
+                    <li class="dropdown-item" onclick=set_search_type(0)>google</li>
+                    <li class="dropdown-item" onclick=set_search_type(1)>知乎</li>
+                    <li class="dropdown-item" onclick=set_search_type(2)>python doc</li>
+                    <li class="dropdown-item" onclick=set_search_type(3)>java doc</li>
+                    <li class="dropdown-item" onclick=set_search_type(4)>spring doc</li>
+                    <li class="dropdown-item" onclick=set_search_type(5)>github</li>
+                    <li class="dropdown-item" onclick=set_search_type(6)>wiki</li>
+                    <li class="dropdown-item" onclick=set_search_type(7)>百度百科</li>
                   </ul>
                 </div>
-                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <input id="searchkey" type="text" class="form-control" aria-label="Text input with dropdown button">
                 <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" style="padding: 0;width: 80px">
-                            <img style="height: 36px;width: auto" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8cGF0aCBzdHlsZT0iZmlsbDojNERCQkVCOyIgZD0iTTQ5My4yMSw0NTAuNzljMTEuNzIsMTEuNzEsMTEuNzIsMzAuNzEsMCw0Mi40MmMtNS44Niw1Ljg2LTEzLjUzLDguNzktMjEuMjEsOC43OSAgcy0xNS4zNS0yLjkzLTIxLjIxLTguNzlsLTk2LjU3LTk2LjU3YzE1Ljc3LTEyLjQsMzAuMDItMjYuNjUsNDIuNDItNDIuNDJMNDkzLjIxLDQ1MC43OXoiLz4KPHBhdGggc3R5bGU9ImZpbGw6I0ZGRjVDRDsiIGQ9Ik0zNTMuODMsMzExLjQxbDQyLjgxLDQyLjgxYy0xMi40LDE1Ljc3LTI2LjY1LDMwLjAyLTQyLjQyLDQyLjQybC00Mi44MS00Mi44MXYtMC4wMSAgYzE2LjI3LTExLjgxLDMwLjYtMjYuMTQsNDIuNDEtNDIuNDFIMzUzLjgzeiIvPgo8cGF0aCBzdHlsZT0iZmlsbDojNERCQkVCOyIgZD0iTTM5MCwyMDBjMCw0MS41OC0xMy40Myw4MC4wOS0zNi4xOCwxMTEuNDFjLTExLjgxLDE2LjI3LTI2LjE0LDMwLjYtNDIuNDEsNDIuNDEgIEMyODAuMDksMzc2LjU3LDI0MS41OCwzOTAsMjAwLDM5MEM5NS4yMywzOTAsMTAsMzA0Ljc3LDEwLDIwMFM5NS4yMywxMCwyMDAsMTBTMzkwLDk1LjIzLDM5MCwyMDB6Ii8+CjxwYXRoIHN0eWxlPSJmaWxsOiNCRUU3RjQ7IiBkPSJNMjAwLDUwYzgyLjcxLDAsMTUwLDY3LjI5LDE1MCwxNTBzLTY3LjI5LDE1MC0xNTAsMTUwUzUwLDI4Mi43MSw1MCwyMDBTMTE3LjI5LDUwLDIwMCw1MHoiLz4KPHBhdGggZD0iTTUwMC4yODEsNDQzLjcxOWwtMTMzLjQ4LTEzMy40OEMzODguNTQ2LDI3Ny40ODUsNDAwLDIzOS41NTUsNDAwLDIwMEM0MDAsODkuNzIsMzEwLjI4LDAsMjAwLDBTMCw4OS43MiwwLDIwMCAgczg5LjcyLDIwMCwyMDAsMjAwYzM5LjU1NiwwLDc3LjQ4Ni0xMS40NTUsMTEwLjIzOS0zMy4xOThsMzYuODk1LDM2Ljg5NWMwLjAwNSwwLjAwNSwwLjAxLDAuMDEsMC4wMTYsMC4wMTZsOTYuNTY4LDk2LjU2OCAgQzQ1MS4yNzYsNTA3LjgzOCw0NjEuMzE5LDUxMiw0NzIsNTEyczIwLjcyNC00LjE2MiwyOC4yNzgtMTEuNzE2QzUwNy44MzcsNDkyLjczMSw1MTIsNDgyLjY4Nyw1MTIsNDcyICBTNTA3LjgzNyw0NTEuMjY5LDUwMC4yODEsNDQzLjcxOXogTTMyNi41MTYsMzU0Ljc5M2MxMC4zNS04LjQ2NywxOS44MTEtMTcuOTI4LDI4LjI3Ny0yOC4yNzdsMjguMzcxLDI4LjM3MSAgYy04LjYyOCwxMC4xODMtMTguMDk0LDE5LjY1LTI4LjI3NywyOC4yNzdMMzI2LjUxNiwzNTQuNzkzeiBNMjAsMjAwYzAtOTkuMjUyLDgwLjc0OC0xODAsMTgwLTE4MHMxODAsODAuNzQ4LDE4MCwxODAgIGMwLDM4LjE3NS0xMS44NTEsNzQuNjY3LTM0LjI3MiwxMDUuNTM1Yy0xMS4yMTcsMTUuNDUzLTI0LjczOSwyOC45NzYtNDAuMTkyLDQwLjE5MmMwLDAuMDAxLTAuMDAxLDAuMDAxLTAuMDAyLDAuMDAyICBDMjc0LjY2NywzNjguMTQ5LDIzOC4xNzUsMzgwLDIwMCwzODBDMTAwLjc0OCwzODAsMjAsMjk5LjI1MiwyMCwyMDB6IE00ODYuMTM5LDQ4Ni4xMzljLTMuNzgsMy43OC04LjgwMSw1Ljg2MS0xNC4xMzksNS44NjEgIHMtMTAuMzU5LTIuMDgxLTE0LjEzOS01Ljg2MWwtODguNzk1LTg4Ljc5NWMxMC4xMjctOC42OTEsMTkuNTg3LTE4LjE1LDI4LjI3Ny0yOC4yNzdsODguNzk4LDg4Ljc5OCAgQzQ4OS45MTksNDYxLjYzOSw0OTIsNDY2LjY1OCw0OTIsNDcyUzQ4OS45MTksNDgyLjM2MSw0ODYuMTM5LDQ4Ni4xMzl6Ii8+CjxwYXRoIGQ9Ik0zNjAsMjAwYzAtODguMjI1LTcxLjc3NS0xNjAtMTYwLTE2MFM0MCwxMTEuNzc1LDQwLDIwMHM3MS43NzUsMTYwLDE2MCwxNjBTMzYwLDI4OC4yMjUsMzYwLDIwMHogTTIwMCwzNDAgIGMtNzcuMTk2LDAtMTQwLTYyLjgwNC0xNDAtMTQwUzEyMi44MDQsNjAsMjAwLDYwczE0MCw2Mi44MDQsMTQwLDE0MFMyNzcuMTk2LDM0MCwyMDAsMzQweiIvPgo8cGF0aCBkPSJNMzA2LjMxNywxNjkuOTk1YzUuMTU1LTEuOTgxLDcuNzI5LTcuNzY2LDUuNzQ4LTEyLjkyMmMtOC42MTEtMjIuNDEyLTIzLjYwNC00MS41NzQtNDMuMzYtNTUuNDEzICBDMjQ4LjQ3OSw4Ny40OSwyMjQuNzIxLDgwLDIwMCw4MGMtNS41MjIsMC0xMCw0LjQ3OC0xMCwxMHM0LjQ3OCwxMCwxMCwxMGM0MS4wOTksMCw3OC42MzEsMjUuODE4LDkzLjM5Niw2NC4yNDcgIGMxLjUyOCwzLjk3Niw1LjMxNyw2LjQxNiw5LjMzNyw2LjQxNkMzMDMuOTI1LDE3MC42NjMsMzA1LjEzOCwxNzAuNDQ4LDMwNi4zMTcsMTY5Ljk5NXoiLz4KPHBhdGggZD0iTTMxMCwxOTBjLTUuNTIsMC0xMCw0LjQ4LTEwLDEwczQuNDgsMTAsMTAsMTBzMTAtNC40OCwxMC0xMFMzMTUuNTIsMTkwLDMxMCwxOTB6Ii8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+                        <button class="btn btn-outline-secondary" type="button" onclick="search()" style="padding: 0;width: 80px">
+                            <img style="height: 36px;width: auto" src="search.png" draggable='false'/>
                         </button>
                       </div>
               </div>
     </div>
 
-    
-    <img id="wall" style="position: fixed ; display: none;width: 50px;right: 0px; bottom: 0px;" src="wall.png"  data-toggle="tooltip"  title="loading..."/>
+    <script>
+        document.getElementById('searchkey').onkeydown=function(event){
+        var e = event || window.event || arguments.callee.caller.arguments[0];
+        if(e && e.keyCode=='13') {
+            search()
+        }};
+    </script>
 
-    <img id="ladder" style="position: fixed ; display: none;width: 50px;right: 0px; bottom: 0px;" src="ladder.png" data-toggle="tooltip" title="loading..."/>
+    
+    <img id="wall" style="position: fixed ; display: none;width: 50px;right: 0px; bottom: 0px;" src="wall.png"  data-toggle="tooltip"  title="loading..." draggable='false'/>
+
+    <img id="ladder" style="position: fixed ; display: none;width: 50px;right: 0px; bottom: 0px;" src="ladder.png" data-toggle="tooltip" title="loading..." draggable='false'/>
     <script>
         function countryip(dic) {
             console.log(dic)
             let wall = document.getElementById("wall")
             let ladder = document.getElementById("ladder")
             if (dic["country"]=="CN") {
+                location_id=0
                 wall.setAttribute("style","position: fixed ; display: block; width: 50px;right: 0px; bottom: 0px;")
                 wall.setAttribute("title",dic["name"]+" : "+dic["ip"])
                 ladder.setAttribute("style","position: fixed ; display: none; width: 50px;right: 0px; bottom: 0px;")
             } else {
+                location_id=1
                 wall.setAttribute("style","position: fixed ; display: none; width: 50px;right: 0px; bottom: 0px;")
                 ladder.setAttribute("style","position: fixed ; display: block; width: 50px;right: 0px; bottom: 0px;")
                 ladder.setAttribute("title",dic["name"]+" : "+dic["ip"])
