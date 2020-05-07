@@ -20,6 +20,13 @@
                 margin: 0;
                 padding: 0;
             }
+            .dropdown-item:hover {
+                background-color:rgb(139, 219, 19);
+                user-select: none;
+            }
+            .dropdown-item:active {
+                color: rgb(108, 18, 199);
+            }
         </style>
     <div class="container p-1"></div>
     <ul id="link_ul" class="list-group list-group-flush list-group-horizontal justify-content-center d-flex flex-wrap"></ul>
@@ -81,6 +88,8 @@
                         ["百度百科","https://baike.baidu.com/search?word=",""]]
         tool=[baidu,google]
         function set_search_type(id) {
+            $('ul.dropdown-menu').removeClass('show');
+            $('#searchkey').focus()
             searchlist=tool[location_id]
             let stext = document.getElementById("searchtext")
             stext.innerHTML = searchlist[id][0]
@@ -90,6 +99,7 @@
         function search(){
             searchlist=tool[location_id]
             let text = document.getElementById("searchkey").value
+            if (text=="") return
             let search_link=searchlist[searchtype][1]+text+searchlist[searchtype][2]
             window.open(search_link)
         }
@@ -134,6 +144,26 @@
         }};
     </script>
 
+    <script type="text/javascript">
+        $(document).ready(function(){
+        dropdownOpen();
+        });
+        function dropdownOpen(){
+            var $dropdownBt = $('button.dropdown-toggle');
+            var $dropdownMn = $('ul.dropdown-menu');
+            $dropdownBt.mouseover(function(){
+                // $(this).addClass('show');
+                $dropdownMn.addClass('show');
+            })
+            // .mouseout(function(){
+                // $('ul.dropdown-menu').removeClass('show');
+                // $(this).removeClass('show');
+            // });
+            $dropdownMn.mouseleave(function(){
+                $dropdownMn.removeClass('show');
+            })
+        }
+    </script>
     
     <img id="wall" style="position: fixed ; display: none;width: 50px;right: 0px; bottom: 0px;" src="wall.png"  data-toggle="tooltip"  title="loading..." draggable='false'/>
 
