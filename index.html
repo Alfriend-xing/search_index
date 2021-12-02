@@ -76,7 +76,8 @@
                         ["spring doc",google_link," site:docs.spring.io"],
                         ["github","https://github.com/search?q=",""],
                         ["wiki",google_link," site:wikipedia.org"],
-                        ["百度百科","https://baike.baidu.com/search?word=",""]]
+                        ["百度百科","https://baike.baidu.com/search?word=",""]],
+                        ["Maven","https://search.maven.org/search?q=",""]]
         var baidu_link = "https://www.baidu.com/s?wd="
         var baidu=[["百度",baidu_link,""],
                         ["知乎",baidu_link," site:zhihu.com"],
@@ -85,7 +86,8 @@
                         ["spring doc",baidu_link," site:docs.spring.io"],
                         ["github","https://github.com/search?q=",""],
                         ["wiki",baidu_link," site:wikipedia.org"],
-                        ["百度百科","https://baike.baidu.com/search?word=",""]]
+                        ["百度百科","https://baike.baidu.com/search?word=",""]],
+                        ["Maven","https://search.maven.org/search?q=",""]]
         tool=[baidu,google]
         function set_search_type(id) {
             $('ul.dropdown-menu').removeClass('show');
@@ -125,6 +127,7 @@
                     <li class="dropdown-item" onclick=set_search_type(5)>github</li>
                     <li class="dropdown-item" onclick=set_search_type(6)>wiki</li>
                     <li class="dropdown-item" onclick=set_search_type(7)>百度百科</li>
+                    <li class="dropdown-item" onclick=set_search_type(8)>Maven</li>
                   </ul>
                 </div>
                 <input id="searchkey" type="text" class="form-control" aria-label="Text input with dropdown button">
